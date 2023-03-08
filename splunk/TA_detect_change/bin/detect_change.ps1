@@ -24,8 +24,8 @@ $t=Get-Date -Format "yyyy-MM-dd HH:mm:ss.fff zzz"
 
 foreach($file in $filestocheck)
 {
-    $hashsha256 = (Get-FileHash -Path $file -Algorithm SHA256).Hash
-    $hashmd5 = (Get-FileHash -Path $file -Algorithm MD5).Hash
+    $hashsha256 = (Get-FileHash -Path $file -Algorithm SHA256).Hash.toLower()
+    $hashmd5 = (Get-FileHash -Path $file -Algorithm MD5).Hash.toLower()
     if(-not $manifestList.ContainsKey($file))
     {
         $type="added"
