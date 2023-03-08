@@ -34,4 +34,5 @@ t=time.strftime("%Y-%m-%d %H:%M:%S %z")
 
 for file in files_to_check:
     hashsha256,hashmd5 = get_file_hash(file)
-    print('{"checktime":"'+t+'","filename":"'+file+'","sha256hash":"'+hashsha256+'","md5hash":"'+hashmd5+'"}')
+    checksum = hashmd5[0:16]
+    print('{"checktime":"'+t+'","filename":"'+file+'","sha256hash":"'+hashsha256+'","md5hash":"'+hashmd5+'","checksum":"0x'+checksum+'"}')
