@@ -13,12 +13,12 @@ app_folder=os.path.join(SPLUNK_HOME, splunk_configuration_folder)
 sys_folder=os.path.join(SPLUNK_HOME, splunk_system_local_folder)
 
 exclusion_apps=["introspection_generator_addon",
-"journald_input",
-"learned",
-"search",
-"SplunkUniversalForwarder",
-"splunk_httpinput",
-"splunk_internal_metrics"]
+    "journald_input",
+    "learned",
+    "search",
+    "SplunkUniversalForwarder",
+    "splunk_httpinput",
+    "splunk_internal_metrics"]
 
 splunk_applications=[os.path.join(app_folder,f) for f in os.listdir(app_folder) if os.path.isdir(os.path.join(app_folder,f)) and f not in exclusion_apps]
 splunk_applications.append(sys_folder)
