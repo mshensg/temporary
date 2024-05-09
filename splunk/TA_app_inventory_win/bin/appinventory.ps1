@@ -22,13 +22,15 @@ $t=Get-Date -Format "yyyy-MM-dd HH:mm:ss.fff zzz"
 ForEach($p in $splunk_applications)
 {
     $filelist=@()
-    $filecontent=@{}
+    #$filecontent=@{}
+    $filecontent=@()
     $conffiles = Get-ChildItem -Name *.conf -Path $p.FullName -Recurse -File | ForEach-Object {Join-Path $p.FullName $_}
     ForEach($fl in $conffiles)
     {
         $content=((Get-Content $fl) | Out-String)
         $filelist += $fl
-        $filecontent[$fl]=$content
+        #$filecontent[$fl]=$content #output dict
+        $filecontent += @{$fl=$content}
     }
     $result=@{_timestamp=$t;
         application=$p.FullName;
