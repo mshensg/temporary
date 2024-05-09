@@ -32,7 +32,7 @@ ForEach($p in $splunk_applications)
         #$filecontent[$fl]=$content #output dict
         $filecontent += @{$fl=$content}
     }
-    $result=@{_timestamp=$t;
+    $result = [ordered] @{_timestamp=$t;
         application=$p.FullName;
         filelist=$filelist;
         filecontent=$filecontent
