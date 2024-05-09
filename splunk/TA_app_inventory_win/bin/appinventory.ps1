@@ -7,12 +7,12 @@ $app_folder=Join-path $SPLUNK_HOME $splunk_configuration_folder
 $sys_folder=Join-path $SPLUNK_HOME $splunk_system_local_folder
 
 $exclusion_apps=@("introspection_generator_addon",
-"journald_input",
-"learned",
-"search",
-"SplunkUniversalForwarder",
-"splunk_httpinput",
-"splunk_internal_metrics")
+    "journald_input",
+    "learned",
+    "search",
+    "SplunkUniversalForwarder",
+    "splunk_httpinput",
+    "splunk_internal_metrics")
 
 $splunk_applications=Get-ChildItem $app_folder -Directory | Where-Object {$_.Name -notin $exclusion_apps}
 $splunk_applications += (Get-Item $sys_folder)
